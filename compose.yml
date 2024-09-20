@@ -18,7 +18,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./grafana/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml:ro
-      - ./grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml:ro
     ports:
       - "3000:3000"
     environment:
