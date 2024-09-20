@@ -2,8 +2,7 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
-  - job_name: 'cosmos'
+  - job_name: "cosmos"
     static_configs:
-      - targets: ['cosmos-mainnet:37001']
-        labels:
-          label: 'cosmos-mainnet'
+      - targets: ["cosmos-mainnet:37010"]
+      - targets: ["dymension-mainnet:37020"]
