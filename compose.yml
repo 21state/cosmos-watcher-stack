@@ -31,7 +31,7 @@ services:
       - "3100:3100"
   promtail:
     image: grafana/promtail:3.0.0
-	restart: unless-stopped
+    restart: unless-stopped
     volumes:
       - ./promtail/promtail.yaml:/etc/promtail/config.yml
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
