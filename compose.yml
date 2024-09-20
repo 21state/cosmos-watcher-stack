@@ -1,0 +1,29 @@
+services:
+  prometheus:
+    image: prom/prometheus
+    restart: unless-stopped
+    volumes:
+      - "./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+    ports:
+      - 9090:9090
+  grafana:
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    volumes:
+      - ./grafana:/etc/grafana/provisioning/datasources
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=grafana
+    
+  cosmos-mainnet:
+    image: ghcr.io/kilnfi/cosmos-validator-watcher:latest
+    restart: unless-stopped
+    command: >
+      --http-addr :37001
+      --node https://cosmos-rpc.publicnode.com:443 
+      --validator 3DC4DD610817606AD4A8F9D762A068A81E8741E2:"Kiln"      
+    ports:
+      - "37001:37001"
+
