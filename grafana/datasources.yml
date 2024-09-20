@@ -9,6 +9,6 @@ datasources:
 
   - name: Loki
     type: loki
-    url: http://loki:9100
+    url: http://loki:3100
     access: proxy
     editable: true
